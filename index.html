@@ -46,20 +46,6 @@
 						}
 					}
 				},
-				bubbleConfig: {
-					borderWidth: 0,
-					borderColor: '#FFFFFF',
-					popupOnHover: true,
-					popupTemplate: function(geography, data) {
-						return '<div class="hoverinfo"><strong>' + data.name + '</strong></div>';
-					},
-					fillOpacity: 0.3,
-					highlightOnHover: true,
-					highlightFillColor: '#ffffff',
-					highlightBorderColor: '#ffffff',
-					highlightBorderWidth: 0,
-					highlightFillOpacity: 0.85
-				},
 				fills: {
 					finfisher: 'crimson',
 					geolocation: 'dodgerblue',
@@ -381,11 +367,20 @@
 			];
 			//draw bubbles
 			map.bubbles(finFisher, {
+				borderWidth: 1,
+				borderColor: '#FFFFFF',
+				popupOnHover: true,
 				popupTemplate: function (geo, data) {
 						return ['<div class="hoverinfo">' +  data.name,
 						'<br/>Total location lookups: ' +  data.total,
 						'</div>'].join('');
-				}
+				},
+				fillOpacity: 0.1,
+				highlightOnHover: true,
+				highlightFillColor: 'dodgerblue',
+				highlightBorderColor: '#ffffff',
+				highlightBorderWidth: 0,
+				highlightFillOpacity: 0.85
 			});
 		</script>
 		<footer class="footer">
