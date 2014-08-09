@@ -11,17 +11,17 @@
 		<script src="http://d3js.org/d3.v3.min.js"></script>
 		<script src="http://d3js.org/topojson.v1.min.js"></script>
 		<script src="js/datamaps.all.js"></script>
-		<style>body {font-family: sans-serif;} .warning { color: darkorange; } .footer {font-size: 0.8em;} #container {max-width: 100%!important; height: auto:}</style>
+		<style>body {font-family: sans-serif;} a { color: dodgerblue;} .warning { color: darkorange; } .footer {font-size: 0.8em;} #container {max-width: 100%!important; height: auto:}</style>
 	</head>
 	<body>
 		<h1>FinFisherMap</h1>
 		<p>Total impacted countries: 24<br />
-		Total logged IP addresses: 2489<br />
-		Unmapped: <a href="http://internetprotectionlab.net/ff-anonymous-proxy-ip-list/" target="_blank">Anonymous proxy IP addresses: 61</a><br />
-		More about A169FE42.rar FinFisher malware logfile: <a target="_blank" href="http://internetprotectionlab.net/finfisher-hack-the-bahrain-logs/">internetprotectionlab.net/finfisher-hack-the-bahrain-logs/</a>
-		</p>
+		Total logged IP addresses: 2489</p>
 		<noscript class="warning">Sorry, this map requires JavaScript.</noscript>
 		<div id="container" style="position: relative; width: 900px; height: 500px;"></div>
+		<p>Unmapped: <a href="http://internetprotectionlab.net/ff-anonymous-proxy-ip-list/" target="_blank">Anonymous proxy IP addresses: 61</a><br />
+		More about A169FE42.rar FinFisher malware logfile: <a target="_blank" href="http://internetprotectionlab.net/finfisher-hack-the-bahrain-logs/">internetprotectionlab.net/finfisher-hack-the-bahrain-logs/</a>
+		</p>
 		<script type="text/javascript">
 			var map = new Datamap({
 				element: document.getElementById('container'),
@@ -30,9 +30,8 @@
 				geographyConfig: {
 					borderColor: '#bbbbbb',
 					borderWidth: 1,
-					highlightFillColor: 'dodgerblue',
-					//highlightBorderColor: 'dodgerblue',
-					//highlightBorderColor: '#ffffff',
+					highlightFillColor: '#111111',
+					//highlightBorderColor: '#111111',
 					popupTemplate: function(geo, data) {
 						if(data != null) {
 							return ['<div class="hoverinfo"><strong>' + geo.properties.name,
@@ -47,7 +46,7 @@
 					}
 				},
 				fills: {
-					finfisher: 'crimson',
+					finfisher: '#333333',
 					geolocation: 'dodgerblue',
 					defaultFill: '#eeeeee'
 				},
@@ -375,7 +374,7 @@
 						'<br/>Total location lookups: ' +  data.total,
 						'</div>'].join('');
 				},
-				fillOpacity: 0.1,
+				fillOpacity: 0.2,
 				highlightOnHover: true,
 				highlightFillColor: 'dodgerblue',
 				highlightBorderColor: '#ffffff',
