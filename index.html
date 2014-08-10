@@ -66,7 +66,7 @@
 										'</strong>',
 										'</div>'].join('');
 								}
-							}
+					        }
 						},
 						fills: {
 							finfisher: '#333333',
@@ -397,7 +397,7 @@
 						borderColor: '#FFFFFF',
 						popupOnHover: true,
 						popupTemplate: function (geo, data) {
-						return ['<div class="hoverinfo"><strong>' +  data.name + '</strong>',
+						return ['<div class="hoverinfo" onclick="window.open('+data.url+');return false;"><strong>' +  data.name + '</strong>',
 								'<br/>Total location lookups: ' +  data.total,
 								'</div>'].join('');
 						},
@@ -422,10 +422,6 @@
 				if(hash == "#hide") {
 					for(i in elements ){
 						elements[i].style.display = "none";
-					}
-				} else {
-					for(i in elements ){
-						elements[i].style.display = "show";
 					}
 				}
 				</script>
