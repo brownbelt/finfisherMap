@@ -11,10 +11,14 @@
 		<script src="js/d3.v3.min.js"></script>
 		<script src="js/topojson.v1.min.js"></script>
 		<script src="js/datamaps.all.js"></script>
-		<style>body {font-family: sans-serif;} a { color: dodgerblue;} .warning { color: darkorange; } .footer {font-size: 0.8em;} #container {max-width: 100%!important; height: auto:}</style>
+		<style>body {font-family: sans-serif;} a { color: dodgerblue;} .warning { color: darkorange; } .footer {font-size: 0.8em;} #container {max-width: 100%!important; height: auto:} .controls {float: right;font-size: 0.8em; }</style>
 	</head>
 	<body>
 		<h1>FinFisherMap</h1>
+		<div class="controls">
+			<a href="#hide" onclick="javascript:reloadPage(this.href);">hide bubbles</a> |
+			<a href="#show" onclick="javascript:reloadPage(this.href);">show bubbles</a>
+		</div>
 		<p>Total impacted countries: 24<br />
 		Total logged IP addresses: 2489</p>
 		<noscript class="warning">Sorry, this map requires JavaScript.</noscript>
@@ -22,6 +26,7 @@
 		<p>Unmapped: <a href="http://internetprotectionlab.net/ff-anonymous-proxy-ip-list/" target="_blank">Anonymous proxy IP addresses: 61</a><br />
 		More about A169FE42.rar FinFisher malware logfile: <a target="_blank" href="http://internetprotectionlab.net/finfisher-hack-the-bahrain-logs/">internetprotectionlab.net/finfisher-hack-the-bahrain-logs/</a>
 		</p>
+
 		<script type="text/javascript">
 			var map = new Datamap({
 				element: document.getElementById('container'),
@@ -381,6 +386,27 @@
 				highlightBorderWidth: 0,
 				highlightFillOpacity: 0.85
 			});
+
+
+		/* toggle bubbles */
+		function reloadPage(hash) {
+			window.location.assign(hash)
+			window.location.reload(true);
+		}
+
+		var hash = window.location.hash;
+		var elements = new Array();
+		elements = document.getElementsByTagName('circle');
+		if(hash == "#hide") {
+			for(i in elements ){
+				elements[i].style.display = "none";
+			}
+		} else {
+			for(i in elements ){
+				elements[i].style.display = "show";
+			}
+		}
+
 		</script>
 		<footer class="footer">
 			The bubbles are not real size, as numbers in Bahrain and the UK would largely overlap the map.<br />
